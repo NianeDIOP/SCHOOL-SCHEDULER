@@ -1,0 +1,161 @@
+/* Styles généraux */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* Styles de navigation */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    margin: 0 5px;
+}
+
+/* Styles des cartes */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card-title i {
+    margin-right: 8px;
+    color: #0d6efd;
+}
+
+/* Styles des boutons */
+.btn {
+    border-radius: 5px;
+    padding: 8px 20px;
+}
+
+/* Styles de la bannière principale */
+.jumbotron {
+    background-color: #f1f8ff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Styles des tableaux */
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Styles pour les emplois du temps */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 1px;
+    background-color: #dee2e6;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-header {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.time-slot {
+    background-color: #e9ecef;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.schedule-cell {
+    background-color: white;
+    padding: 10px;
+    min-height: 80px;
+}
+
+.schedule-item {
+    background-color: #e6f7ff;
+    border-left: 4px solid #0d6efd;
+    padding: 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Styles pour les formulaires */
+.form-label {
+    font-weight: 500;
+}
+
+.form-control, .form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Styles pour les alertes */
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 1.5rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}

@@ -5,12 +5,18 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "seed": "node scripts/seedData.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "école",
+    "emploi du temps",
+    "planification",
+    "éducation"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Application de génération d'emplois du temps scolaires avec gestion des contraintes",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
