@@ -120,6 +120,7 @@ router.put('/:scheduleId/entries/:entryId', async (req, res) => {
   }
 });
 
+
 // Supprimer une entrée d'emploi du temps
 router.delete('/:scheduleId/entries/:entryId', async (req, res) => {
   try {
@@ -186,22 +187,29 @@ router.post('/:id/publish', async (req, res) => {
 });
 
 // Archiver un emploi du temps
-router.post('/:id/archive', async (req, res) => {
+// Ajouter cette route pour supprimer un emploi du temps
+router.delete('/:id', async (req, res) => {
   try {
-    const schedule = await Schedule.findByPk(req.params.id);
+    const scheduleId = req.params.id;
+    
+    // Vérifier si l'emploi du temps existe
+    const schedule = await Schedule.findByPk(scheduleId);
     if (!schedule) {
       return res.status(404).json({ message: 'Emploi du temps non trouvé' });
     }
     
-    await schedule.update({
-      status: 'archived',
-      isActive: false
+    // D'abord supprimer toutes les entrées associées à cet emploi du temps
+    await ScheduleEntry.destroy({
+      where: { ScheduleId: scheduleId }
     });
     
-    res.json(schedule);
+    // Puis supprimer l'emploi du temps lui-même
+    await schedule.destroy();
+    
+    res.status(204).end(); // Réponse réussie sans contenu
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Erreur serveur' });
+    res.status(500).json({ message: 'Erreur serveur', error: error.message });
   }
 });
 
